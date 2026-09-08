@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel del equipo — A Otro Nivel</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="contenedor">
+    <a href="index.html" class="marca">A Otro<span> Nivel</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="wiki.html">Wiki</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:1rem;">
+    <div class="contenedor" style="max-width:640px;">
+      <p class="lema">Solo equipo</p>
+      <h1>Panel del equipo</h1>
+      <div class="aviso">
+        Esta clave es solo una demostración: vive en un archivo público y no protege datos reales. Antes de usar este panel con dinero de verdad, cámbiala por un inicio de sesión real (por ejemplo Firebase Auth o Supabase). Ver la nota completa en <code>js/admin.js</code>.
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="contenedor" style="max-width:640px;">
+
+      <div id="login">
+        <form id="formLogin" class="formulario" style="max-width:100%;">
+          <div class="campo">
+            <label for="clave">Clave del equipo</label>
+            <input type="password" id="clave" required>
+          </div>
+          <button type="submit" class="boton boton-principal">Entrar</button>
+          <p id="errorLogin" style="color:var(--error); font-size:0.9rem; margin-top:0.75rem;"></p>
+        </form>
+      </div>
+
+      <div id="panel" class="oculto">
+
+        <div class="panel-admin">
+
+          <div class="caja-admin">
+            <h3>Personas ayudadas</h3>
+            <p style="margin-bottom:0.5rem;">Total actual: <strong id="valorPersonas">0</strong></p>
+            <form id="formPersonas">
+              <div class="campo">
+                <label for="sumaPersonas">Sumar (o restar con signo negativo)</label>
+                <input type="number" id="sumaPersonas" placeholder="Ej: 3">
+              </div>
+              <button type="submit" class="boton boton-secundario">Actualizar</button>
+            </form>
+          </div>
+
+          <div class="caja-admin">
+            <h3>Fondos recaudados</h3>
+            <p style="margin-bottom:0.5rem;">Total actual: <strong id="valorFondos">$0</strong></p>
+            <form id="formFondos">
+              <div class="campo">
+                <label for="sumaFondos">Sumar (o restar con signo negativo)</label>
+                <input type="number" id="sumaFondos" placeholder="Ej: 150000">
+              </div>
+              <button type="submit" class="boton boton-secundario">Actualizar</button>
+            </form>
+          </div>
+
+          <div class="caja-admin">
+            <h3>Meta actual</h3>
+            <form id="formMeta">
+              <div class="campo">
+                <label for="inputMeta">Monto meta</label>
+                <input type="number" id="inputMeta">
+              </div>
+              <button type="submit" class="boton boton-secundario">Guardar meta</button>
+            </form>
+          </div>
+
+          <div class="caja-admin">
+            <h3>Códigos exclusivos</h3>
+            <p class="campo-ayuda" style="margin-bottom:0.75rem;">Disponibles: <span id="listaCodigos"></span></p>
+            <form id="formNuevoCodigo">
+              <div class="campo">
+                <label for="nuevoCodigo">Nuevo código (para la próxima feria o visita)</label>
+                <input type="text" id="nuevoCodigo" placeholder="Ej: FERIA-2026-D4">
+              </div>
+              <button type="submit" class="boton boton-secundario">Agregar código</button>
+            </form>
+          </div>
+
+        </div>
+
+        <p class="nota-honesta" style="margin-top:2rem;">Estos cambios se guardan en este navegador. Para que se vean igual en todos los dispositivos y para todos los visitantes, este panel debe conectarse a una base de datos real — ver la nota en <code>js/data.js</code>.</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
