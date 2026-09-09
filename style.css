@@ -1,0 +1,214 @@
+/* ============================================================
+   A OTRO NIVEL — hoja de estilos (v2: abstracta y simple)
+   Menos líneas y cajas, más espacio en blanco. La única pieza
+   decorativa es una mancha abstracta de dos colores en el fondo
+   del hero — el resto es tipografía y espacio.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --noche: #14182a;
+  --panel: #1b2036;
+  --amanecer: #e7a23a;
+  --amanecer-suave: #f2c375;
+  --brote: #4c8c74;
+  --papel: #f6f1e4;
+  --texto-suave: #b9bdd1;
+  --texto-tenue: #7d82a0;
+  --error: #d9694f;
+  --linea: rgba(246, 241, 228, 0.08);
+
+  --fuente-titular: 'Fraunces', Georgia, serif;
+  --fuente-cuerpo: 'Public Sans', -apple-system, sans-serif;
+  --contenido-ancho: 1080px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--noche);
+  color: var(--papel);
+  font-family: var(--fuente-cuerpo);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titular);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: clamp(2.3rem, 5vw, 3.7rem); }
+h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 500; }
+h3 { font-size: 1.15rem; font-weight: 600; font-family: var(--fuente-cuerpo); }
+
+p { max-width: 60ch; color: var(--texto-suave); }
+a { color: var(--amanecer-suave); }
+
+.contenedor { max-width: var(--contenido-ancho); margin: 0 auto; padding: 0 1.5rem; }
+
+/* -------------------- Encabezado -------------------- */
+
+.encabezado {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(20, 24, 42, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.encabezado .contenedor {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+}
+
+.marca { font-family: var(--fuente-titular); font-size: 1.25rem; color: var(--papel); text-decoration: none; }
+.marca span { color: var(--amanecer); }
+
+.nav-links { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+.nav-links a { color: var(--texto-suave); text-decoration: none; font-size: 0.93rem; }
+.nav-links a:hover { color: var(--amanecer-suave); }
+
+.boton {
+  display: inline-block; padding: 0.7rem 1.4rem; border-radius: 100px;
+  font-weight: 600; text-decoration: none; font-family: var(--fuente-cuerpo);
+  font-size: 0.9rem; border: 1px solid transparent; cursor: pointer;
+}
+.boton-principal { background: var(--amanecer); color: #241505; }
+.boton-principal:hover { background: var(--amanecer-suave); }
+.boton-secundario { background: transparent; border-color: var(--linea); color: var(--papel); }
+.boton-secundario:hover { border-color: var(--amanecer); color: var(--amanecer-suave); }
+
+/* -------------------- Mancha abstracta (decoración) -------------------- */
+
+.mancha {
+  position: absolute;
+  z-index: 0;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* -------------------- Hero -------------------- */
+
+.hero { padding: 5.5rem 0 4.5rem; position: relative; overflow: hidden; }
+
+.hero-grid {
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem;
+  align-items: center; position: relative; z-index: 1;
+}
+
+.lema { font-family: var(--fuente-titular); color: var(--amanecer); font-size: 1rem; margin-bottom: 0.9rem; font-style: italic; }
+
+.hero-acciones { display: flex; gap: 1rem; margin-top: 2.2rem; flex-wrap: wrap; }
+
+.hero-cifra { padding: 1rem 0; text-align: left; }
+.hero-cifra .numero { font-family: var(--fuente-titular); font-size: 3.6rem; color: var(--amanecer); display: block; line-height: 1; }
+.hero-cifra .etiqueta { color: var(--texto-tenue); margin-top: 0.6rem; font-size: 0.92rem; }
+
+/* -------------------- Pasos (versión simple) -------------------- */
+
+.pasos { display: flex; flex-direction: column; gap: 2.2rem; margin: 2.5rem 0; }
+
+.paso { display: grid; grid-template-columns: 22px 1fr; gap: 1.3rem; align-items: start; }
+
+.paso-punto { width: 10px; height: 10px; border-radius: 50%; background: var(--brote); margin-top: 0.5rem; }
+
+/* -------------------- Sección genérica -------------------- */
+
+section { padding: 4.5rem 0; }
+.seccion-alterna { background: var(--panel); }
+.encabezado-seccion { max-width: 620px; margin-bottom: 2.75rem; }
+
+/* -------------------- Estadísticas -------------------- */
+
+.stats-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 2.25rem; }
+
+.stat-caja .numero-grande { font-family: var(--fuente-titular); font-size: 2.5rem; display: block; }
+.stat-caja .numero-grande.color-amanecer { color: var(--amanecer); }
+.stat-caja .numero-grande.color-brote { color: var(--brote); }
+.stat-caja .descripcion { color: var(--texto-tenue); font-size: 0.88rem; }
+
+.barra-meta-contenedor { height: 6px; background: var(--noche); border-radius: 999px; overflow: hidden; }
+.barra-meta { height: 100%; width: 0%; background: linear-gradient(90deg, var(--brote), var(--amanecer)); transition: width 0.6s ease; }
+#textoMeta { font-size: 0.82rem; color: var(--texto-tenue); margin-top: 0.6rem; }
+
+.grafico-envoltorio { margin-top: 2.5rem; }
+
+.nota-honesta { font-size: 0.8rem; color: var(--texto-tenue); margin-top: 1.75rem; max-width: 60ch; }
+
+/* -------------------- Tarjetas -------------------- */
+
+.tarjetas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.tarjeta { border-top: 2px solid var(--brote); padding-top: 1.1rem; }
+.tarjeta h3 { color: var(--papel); margin-bottom: 0.5rem; }
+.tarjeta p { font-size: 0.92rem; }
+
+/* -------------------- Formularios -------------------- */
+
+.formulario { max-width: 560px; }
+
+.campo { margin-bottom: 1.3rem; }
+.campo label { display: block; margin-bottom: 0.4rem; font-size: 0.88rem; color: var(--texto-suave); }
+
+.campo input, .campo textarea {
+  width: 100%; padding: 0.75rem 0.9rem; background: var(--panel);
+  border: 1px solid var(--linea); border-radius: 6px; color: var(--papel);
+  font-family: var(--fuente-cuerpo); font-size: 0.95rem;
+}
+.campo input:focus, .campo textarea:focus { outline: 2px solid var(--amanecer); outline-offset: 1px; }
+.campo textarea { resize: vertical; min-height: 90px; }
+.campo-ayuda { font-size: 0.78rem; color: var(--texto-tenue); margin-top: 0.35rem; }
+
+.mensaje { margin-top: 1rem; padding: 0.85rem 1rem; border-radius: 6px; font-size: 0.88rem; display: none; }
+.mensaje.exito { display: block; background: rgba(76, 140, 116, 0.15); color: var(--brote); }
+.mensaje.error { display: block; background: rgba(217, 105, 79, 0.13); color: var(--error); }
+
+/* -------------------- Pie -------------------- */
+
+.pie { border-top: 1px solid var(--linea); padding: 3rem 0; color: var(--texto-tenue); font-size: 0.88rem; }
+.pie-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+.pie a { color: var(--texto-suave); text-decoration: none; display: block; margin-bottom: 0.5rem; }
+.pie a:hover { color: var(--amanecer-suave); }
+
+/* -------------------- Celebración de meta -------------------- */
+
+.celebracion {
+  position: fixed; inset: 0; background: rgba(20, 24, 42, 0.94);
+  display: flex; align-items: center; justify-content: center; z-index: 50;
+  opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+}
+.celebracion.visible { opacity: 1; pointer-events: auto; }
+.celebracion-caja { text-align: center; padding: 2.5rem 3rem; }
+.celebracion-caja .icono { font-size: 2.2rem; }
+.meta-alcanzada-texto { font-family: var(--fuente-titular); font-size: 1.5rem; color: var(--amanecer); margin-top: 0.7rem; }
+
+/* -------------------- Admin -------------------- */
+
+.panel-admin { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.caja-admin { border-top: 2px solid var(--amanecer); padding-top: 1.1rem; }
+
+.oculto { display: none !important; }
+
+.aviso { background: rgba(231, 162, 58, 0.1); color: var(--amanecer-suave); padding: 1rem 1.25rem; border-radius: 6px; font-size: 0.86rem; margin-bottom: 2rem; }
+
+code { background: var(--panel); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85em; }
+
+/* -------------------- Responsive -------------------- */
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .stats-fila { grid-template-columns: 1fr; }
+  .tarjetas { grid-template-columns: 1fr; }
+  .pie-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .nav-links { display: none; }
+  .panel-admin { grid-template-columns: 1fr; }
+  .mancha { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}

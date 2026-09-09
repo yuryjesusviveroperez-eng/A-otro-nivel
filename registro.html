@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regístrate — A Otro Nivel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="contenedor">
+    <a href="index.html" class="marca">A Otro<span> Nivel</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="wiki.html">Wiki</a></li>
+    </ul>
+    <a href="wiki.html" class="boton boton-secundario">Leer nuestra historia</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom: 1rem;">
+    <div class="contenedor">
+      <p class="lema">Únete</p>
+      <h1>Regístrate como miembro solidario</h1>
+      <p>Este registro es para quienes ya conocen el proyecto de primera mano: recibiste un código exclusivo en una feria o en una visita de nuestro equipo. Si aún no tienes uno, escríbenos a <a href="mailto:soyese102015@gmail.com">soyese102015@gmail.com</a> o espera nuestra próxima visita.</p>
+    </div>
+  </section>
+
+  <section style="padding-top: 1rem;">
+    <div class="contenedor">
+      <form id="formRegistro" class="formulario">
+
+        <div class="campo">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" required>
+        </div>
+
+        <div class="campo">
+          <label for="colegio">Colegio</label>
+          <input type="text" id="colegio" required>
+        </div>
+
+        <div class="campo">
+          <label for="salon">Salón</label>
+          <input type="text" id="salon" required>
+        </div>
+
+        <div class="campo">
+          <label for="motivos">¿Por qué quieres unirte?</label>
+          <textarea id="motivos" required></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="talento">Tu talento o en qué te gustaría ayudar</label>
+          <textarea id="talento" required></textarea>
+        </div>
+
+        <div class="campo">
+          <label for="codigo">Código exclusivo</label>
+          <input type="text" id="codigo" required placeholder="Ej: FERIA-2026-A1">
+          <p class="campo-ayuda">Te lo entregamos en persona en cada feria o visita. Solo funciona una vez.</p>
+        </div>
+
+        <button type="submit" class="boton boton-principal" style="width:100%;">Registrarme</button>
+
+        <div id="mensajeRegistro" class="mensaje"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie-grid">
+    <div>
+      <p class="marca" style="font-size:1.1rem;">A Otro<span style="color:var(--amanecer);"> Nivel</span></p>
+      <p>Fundación que organiza ferias de innovación para mostrar el talento de personas en condición de calle y ayudarlas a salir de ahí.</p>
+    </div>
+    <div>
+      <h3 style="font-size:0.95rem; color:var(--papel);">Sitio</h3>
+      <a href="index.html">Inicio</a>
+      <a href="wiki.html">Wiki</a>
+    </div>
+    <div>
+      <h3 style="font-size:0.95rem; color:var(--papel);">Contacto</h3>
+      <a href="mailto:soyese102015@gmail.com">soyese102015@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="js/registro.js"></script>
+</body>
+</html>
