@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Otro Nivel — talento que sale de la calle</title>
+<meta name="description" content="Fundación que organiza ferias de innovación para mostrar el talento de personas en condición de calle y ayudarlas a salir de ahí.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="contenedor">
+    <a href="index.html" class="marca">A Otro<span> Nivel</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#como-funciona">Cómo funciona</a></li>
+      <li><a href="wiki.html">Wiki</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="index.html#impacto">Impacto</a></li>
+    </ul>
+    <a href="registro.html" class="boton boton-principal">Regístrate</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <svg class="mancha" width="360" height="360" viewBox="0 0 360 360" style="top:-90px; right:-90px; opacity:0.9;">
+      <path fill="#ffd9a0" d="M180 30c50 0 100 25 130 65 30 42 30 100 0 142-32 44-90 65-142 55-52-10-98-48-112-98-14-52 6-112 50-142C130 32 150 30 180 30Z"/>
+    </svg>
+    <svg class="mancha" width="220" height="220" viewBox="0 0 220 220" style="top:220px; right:60px; opacity:0.9;">
+      <circle cx="110" cy="110" r="110" fill="#bdeadb"/>
+    </svg>
+    <svg class="mancha" width="140" height="140" viewBox="0 0 140 140" style="top:20px; right:280px; opacity:0.9;">
+      <circle cx="70" cy="70" r="70" fill="#ffb9ac"/>
+    </svg>
+    <div class="contenedor hero-grid">
+      <div>
+        <p class="lema">A otro nivel</p>
+        <h1>El talento no pregunta dónde duermes.</h1>
+        <p>Organizamos ferias de innovación donde científicos, artesanos y creadores en condición de calle muestran lo que saben hacer. Lo recaudado vuelve a ellos: más ferias, más campañas, y un camino real para salir de la calle.</p>
+
+        <div id="cuentaRegresiva" class="cuenta-regresiva oculto">
+          <span class="cuenta-titulo">Próxima feria en</span>
+          <div class="cuenta-numeros">
+            <div><strong id="cuentaDias">0</strong><small>días</small></div>
+            <div><strong id="cuentaHoras">0</strong><small>horas</small></div>
+            <div><strong id="cuentaMinutos">0</strong><small>min</small></div>
+          </div>
+        </div>
+
+        <div class="hero-acciones">
+          <a href="wiki.html" class="boton boton-principal">Conoce nuestra historia</a>
+          <a href="registro.html" class="boton boton-secundario">Únete como voluntario</a>
+        </div>
+      </div>
+      <div class="hero-cifra">
+        <span class="numero" id="numPersonasHero">0</span>
+        <p class="etiqueta">personas ayudadas hasta hoy</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2>Así funciona A Otro Nivel</h2>
+        <p>Tres pasos, siempre en ese orden: primero encontramos el talento, después lo mostramos, y con lo recaudado devolvemos oportunidades a quienes lo demostraron.</p>
+      </div>
+      <div class="pasos">
+        <div class="paso">
+          <span class="paso-punto">1</span>
+          <div>
+            <h3>Buscamos el talento en la calle</h3>
+            <p>Visitamos lugares donde viven personas en condición de calle y las invitamos a mostrar lo que saben hacer: ciencia, oficios, arte, ideas. A cada visita entregamos un código exclusivo para unirse a la comunidad.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <span class="paso-punto">2</span>
+          <div>
+            <h3>Lo mostramos en una feria</h3>
+            <p>Organizamos ferias de innovación abiertas al público, donde cada participante presenta su talento frente a asistentes, aliados y posibles empleadores.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <span class="paso-punto">3</span>
+          <div>
+            <h3>Repartimos lo recaudado</h3>
+            <p>El dinero de cada feria financia nuevas ferias, campañas y apoyo directo para salir de la calle. El resto mantiene el sitio, la comida y los materiales que usamos en cada evento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="impacto" class="seccion-alterna">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2>Nuestro impacto</h2>
+        <p>Estos números los actualiza nuestro equipo después de cada feria y cada donación confirmada — no son una simulación automática.</p>
+      </div>
+
+      <div class="panel-stats">
+        <div class="stats-fila">
+          <div class="stat-caja">
+            <span class="numero-grande color-amanecer" id="numPersonas">0</span>
+            <span class="descripcion">personas ayudadas</span>
+          </div>
+          <div class="stat-caja">
+            <span class="numero-grande color-brote" id="numFondos">$0</span>
+            <span class="descripcion">recaudado para la próxima feria</span>
+          </div>
+        </div>
+
+        <div class="barra-meta-contenedor">
+          <div class="barra-meta" id="barraMeta"></div>
+        </div>
+        <p id="textoMeta"></p>
+
+        <div class="grafico-envoltorio">
+          <canvas id="graficoPersonas" height="110"></canvas>
+        </div>
+
+        <p class="nota-honesta">Estos datos se guardan en este sitio y se actualizan manualmente desde el panel del equipo cada vez que cerramos una feria o confirmamos una donación. Preferimos un número real y algo más lento que uno automático que no podamos respaldar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2>Lo que vas a encontrar en una feria</h2>
+        <p>Cada feria reúne historias y talentos distintos. Estos son algunos ejemplos del tipo de talento que buscamos reconocer.</p>
+      </div>
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <h3>Ciencia e ingeniería popular</h3>
+          <p>Personas que diseñan soluciones propias con lo que tienen a la mano: reparaciones, inventos, mecanismos.</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Oficios y artesanía</h3>
+          <p>Carpintería, costura, reparación de aparatos, trabajos manuales que ya dominan y pueden convertir en sustento.</p>
+        </div>
+        <div class="tarjeta">
+          <h3>Arte y expresión</h3>
+          <p>Música, pintura, escritura: formas de contar su historia que también abren puertas de trabajo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-alterna">
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2>Fotos de nuestras ferias</h2>
+        <p>Un vistazo a lo que pasa el día de una feria. Esta es la galería completa.</p>
+      </div>
+      <div class="galeria-grid">
+        <div class="foto-hueco" style="background:var(--coral-suave);"><span class="foto-icono">📷</span><p>Próximamente</p></div>
+        <div class="foto-hueco" style="background:var(--sol-suave);"><span class="foto-icono">📷</span><p>Próximamente</p></div>
+        <div class="foto-hueco" style="background:var(--cielo-suave);"><span class="foto-icono">📷</span><p>Próximamente</p></div>
+      </div>
+      <p style="margin-top:1.5rem;"><a href="galeria.html">Ver la galería completa →</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="contenedor">
+      <div class="encabezado-seccion">
+        <h2>Lo que cuentan quienes ya pasaron por una feria</h2>
+        <p>Espacios de ejemplo — se reemplazan por testimonios reales, siempre con el permiso de la persona antes de publicar su nombre o su historia.</p>
+      </div>
+      <div class="tarjetas">
+        <div class="tarjeta">
+          <p style="font-style:italic; margin-bottom:1rem;">"[Aquí va, en sus propias palabras, lo que la persona quiera contar sobre su experiencia en la feria]"</p>
+          <h3>— Nombre, talento presentado</h3>
+        </div>
+        <div class="tarjeta">
+          <p style="font-style:italic; margin-bottom:1rem;">"[Aquí va, en sus propias palabras, lo que la persona quiera contar sobre su experiencia en la feria]"</p>
+          <h3>— Nombre, talento presentado</h3>
+        </div>
+        <div class="tarjeta">
+          <p style="font-style:italic; margin-bottom:1rem;">"[Aquí va, en sus propias palabras, lo que la persona quiera contar sobre su experiencia en la feria]"</p>
+          <h3>— Nombre, talento presentado</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-alterna">
+    <div class="contenedor">
+      <div class="encabezado-seccion" style="margin-bottom:1.5rem;">
+        <h2>Aliados y patrocinadores</h2>
+        <p>Casillas de ejemplo — cámbialas por los logos reales de tus aliados en cuanto los tengas.</p>
+      </div>
+      <div class="tira-aliados">
+        <div class="aliado-hueco">Tu logo aquí</div>
+        <div class="aliado-hueco">Tu logo aquí</div>
+        <div class="aliado-hueco">Tu logo aquí</div>
+        <div class="aliado-hueco">Tu logo aquí</div>
+      </div>
+      <p style="margin-top:1.5rem;">¿Tu empresa o colectivo quiere sumarse como aliado? Escríbenos a <a href="mailto:soyese102015@gmail.com">soyese102015@gmail.com</a>.</p>
+    </div>
+  </section>
+
+  <section class="seccion-alterna">
+    <div class="contenedor" style="text-align:center;">
+      <h2>¿Quieres ser parte de esto?</h2>
+      <p style="margin: 0 auto 1.5rem;">Buscamos voluntarios y aliados solidarios. El registro pide un código exclusivo que entregamos en cada feria o visita, así mantenemos la comunidad segura y real.</p>
+      <a href="registro.html" class="boton boton-principal">Ir al registro</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie-grid">
+    <div>
+      <p class="marca" style="font-size:1.1rem;">A Otro<span style="color:var(--coral);"> Nivel</span></p>
+      <p>Fundación que organiza ferias de innovación para mostrar el talento de personas en condición de calle y ayudarlas a salir de ahí.</p>
+    </div>
+    <div>
+      <h3 style="font-size:0.95rem; color:var(--tinta);">Sitio</h3>
+      <a href="wiki.html">Wiki</a>
+      <a href="registro.html">Registro</a>
+      <a href="admin.html">Panel del equipo</a>
+    </div>
+    <div>
+      <h3 style="font-size:0.95rem; color:var(--tinta);">Contacto</h3>
+      <a href="mailto:soyese102015@gmail.com">soyese102015@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script type="module" src="main.js"></script>
+</body>
+</html>

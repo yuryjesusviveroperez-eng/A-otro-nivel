@@ -1,0 +1,271 @@
+/* ============================================================
+   A OTRO NIVEL — hoja de estilos (v3: alegre y viva)
+   Fondo claro, paleta de varios colores cálidos, formas
+   orgánicas. Menos "elegante y serio", más "cálido y vivo".
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --crema: #fff8ef;
+  --panel: #fff1de;
+  --tinta: #2b2438;
+
+  --coral: #ff6b57;
+  --coral-suave: #ffe4de;
+  --sol: #ffb84d;
+  --sol-suave: #fff0d6;
+  --menta: #2fb88f;
+  --menta-suave: #e0f5ee;
+  --cielo: #4d9de0;
+  --cielo-suave: #e3f0fb;
+
+  --texto-suave: #5c5468;
+  --texto-tenue: #8b8496;
+  --error: #e8503a;
+  --linea: rgba(43, 36, 56, 0.08);
+
+  --fuente-titular: 'Fraunces', Georgia, serif;
+  --fuente-cuerpo: 'Public Sans', -apple-system, sans-serif;
+  --contenido-ancho: 1080px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--crema);
+  color: var(--tinta);
+  font-family: var(--fuente-cuerpo);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titular);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  color: var(--tinta);
+}
+
+h1 { font-size: clamp(2.3rem, 5vw, 3.7rem); }
+h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+h3 { font-size: 1.15rem; font-weight: 700; font-family: var(--fuente-cuerpo); }
+
+p { max-width: 60ch; color: var(--texto-suave); }
+a { color: var(--coral); font-weight: 600; }
+
+.contenedor { max-width: var(--contenido-ancho); margin: 0 auto; padding: 0 1.5rem; }
+
+/* -------------------- Encabezado -------------------- */
+
+.encabezado {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(255, 248, 239, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--linea);
+}
+
+.encabezado .contenedor {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+}
+
+.marca { font-family: var(--fuente-titular); font-size: 1.3rem; color: var(--tinta); text-decoration: none; }
+.marca span { color: var(--coral); }
+
+.nav-links { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+.nav-links a { color: var(--texto-suave); text-decoration: none; font-size: 0.93rem; font-weight: 500; }
+.nav-links a:hover { color: var(--coral); }
+
+.boton {
+  display: inline-block; padding: 0.75rem 1.5rem; border-radius: 100px;
+  font-weight: 700; text-decoration: none; font-family: var(--fuente-cuerpo);
+  font-size: 0.9rem; border: 2px solid transparent; cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.boton:hover { transform: translateY(-2px); }
+.boton-principal { background: var(--coral); color: #fff; }
+.boton-principal:hover { background: #ff5640; }
+.boton-secundario { background: transparent; border-color: var(--tinta); color: var(--tinta); }
+.boton-secundario:hover { border-color: var(--coral); color: var(--coral); }
+
+/* -------------------- Manchas abstractas -------------------- */
+
+.mancha { position: absolute; z-index: 0; filter: blur(8px); opacity: 0.9; pointer-events: none; }
+
+/* -------------------- Hero -------------------- */
+
+.hero { padding: 5rem 0 4rem; position: relative; overflow: hidden; }
+
+.hero-grid {
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem;
+  align-items: center; position: relative; z-index: 1;
+}
+
+.lema { font-family: var(--fuente-titular); color: var(--coral); font-size: 1rem; margin-bottom: 0.9rem; font-style: italic; }
+
+.hero-acciones { display: flex; gap: 1rem; margin-top: 2.2rem; flex-wrap: wrap; }
+
+.hero-cifra {
+  background: var(--panel);
+  border-radius: 28px;
+  padding: 2.25rem;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+.hero-cifra .numero { font-family: var(--fuente-titular); font-size: 3.6rem; color: var(--coral); display: block; line-height: 1; }
+.hero-cifra .etiqueta { color: var(--texto-tenue); margin-top: 0.6rem; font-size: 0.92rem; font-weight: 600; }
+
+/* -------------------- Pasos -------------------- */
+
+.pasos { display: flex; flex-direction: column; gap: 1.4rem; margin: 2.5rem 0; }
+
+.paso {
+  display: grid; grid-template-columns: 44px 1fr; gap: 1.2rem; align-items: start;
+  background: var(--panel); border-radius: 20px; padding: 1.4rem 1.5rem;
+}
+
+.paso-punto {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fuente-titular); font-weight: 700; color: #fff; font-size: 1.1rem;
+}
+.paso:nth-child(1) .paso-punto { background: var(--coral); }
+.paso:nth-child(2) .paso-punto { background: var(--sol); }
+.paso:nth-child(3) .paso-punto { background: var(--menta); }
+
+/* -------------------- Sección genérica -------------------- */
+
+section { padding: 4.5rem 0; }
+.seccion-alterna { background: var(--panel); }
+.encabezado-seccion { max-width: 620px; margin-bottom: 2.75rem; }
+
+/* -------------------- Estadísticas -------------------- */
+
+.panel-stats { background: #fff; border-radius: 28px; padding: 2.25rem; }
+
+.stats-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-bottom: 2.25rem; }
+
+.stat-caja .numero-grande { font-family: var(--fuente-titular); font-size: 2.5rem; display: block; }
+.stat-caja .numero-grande.color-amanecer { color: var(--coral); }
+.stat-caja .numero-grande.color-brote { color: var(--menta); }
+.stat-caja .descripcion { color: var(--texto-tenue); font-size: 0.88rem; font-weight: 600; }
+
+.barra-meta-contenedor { height: 10px; background: var(--sol-suave); border-radius: 999px; overflow: hidden; }
+.barra-meta { height: 100%; width: 0%; background: linear-gradient(90deg, var(--menta), var(--coral)); transition: width 0.6s ease; }
+#textoMeta { font-size: 0.82rem; color: var(--texto-tenue); margin-top: 0.6rem; font-weight: 600; }
+
+.grafico-envoltorio { margin-top: 2.5rem; }
+
+.nota-honesta { font-size: 0.8rem; color: var(--texto-tenue); margin-top: 1.75rem; max-width: 60ch; }
+
+/* -------------------- Tarjetas -------------------- */
+
+.tarjetas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.tarjeta { border-radius: 20px; padding: 1.6rem; }
+.tarjeta:nth-child(1) { background: var(--coral-suave); }
+.tarjeta:nth-child(2) { background: var(--sol-suave); }
+.tarjeta:nth-child(3) { background: var(--cielo-suave); }
+.tarjeta h3 { margin-bottom: 0.5rem; }
+.tarjeta p { font-size: 0.92rem; }
+
+/* -------------------- Formularios -------------------- */
+
+.formulario { max-width: 560px; }
+
+.campo { margin-bottom: 1.3rem; }
+.campo label { display: block; margin-bottom: 0.4rem; font-size: 0.88rem; color: var(--texto-suave); font-weight: 600; }
+
+.campo input, .campo textarea, .campo select {
+  width: 100%; padding: 0.8rem 1rem; background: #fff;
+  border: 2px solid var(--linea); border-radius: 12px; color: var(--tinta);
+  font-family: var(--fuente-cuerpo); font-size: 0.95rem;
+}
+.campo input:focus, .campo textarea:focus, .campo select:focus { outline: none; border-color: var(--coral); }
+.campo textarea { resize: vertical; min-height: 90px; }
+.campo-ayuda { font-size: 0.78rem; color: var(--texto-tenue); margin-top: 0.35rem; }
+
+.mensaje { margin-top: 1rem; padding: 0.85rem 1.1rem; border-radius: 12px; font-size: 0.88rem; display: none; font-weight: 600; }
+.mensaje.exito { display: block; background: var(--menta-suave); color: #1c7a5c; }
+.mensaje.error { display: block; background: var(--coral-suave); color: var(--error); }
+
+/* -------------------- Pie -------------------- */
+
+.pie { border-top: 1px solid var(--linea); padding: 3rem 0; color: var(--texto-tenue); font-size: 0.88rem; }
+.pie-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+.pie a { color: var(--texto-suave); text-decoration: none; display: block; margin-bottom: 0.5rem; font-weight: 500; }
+.pie a:hover { color: var(--coral); }
+
+/* -------------------- Celebración de meta -------------------- */
+
+.celebracion {
+  position: fixed; inset: 0; background: rgba(43, 36, 56, 0.85);
+  display: flex; align-items: center; justify-content: center; z-index: 50;
+  opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+}
+.celebracion.visible { opacity: 1; pointer-events: auto; }
+.celebracion-caja { text-align: center; padding: 2.5rem 3rem; background: #fff; border-radius: 28px; }
+.celebracion-caja .icono { font-size: 2.5rem; }
+.meta-alcanzada-texto { font-family: var(--fuente-titular); font-size: 1.5rem; color: var(--coral); margin-top: 0.7rem; }
+
+/* -------------------- Admin -------------------- */
+
+.panel-admin { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.caja-admin { background: var(--panel); border-radius: 20px; padding: 1.6rem; }
+
+.oculto { display: none !important; }
+
+.aviso { background: var(--sol-suave); color: #8a5a00; padding: 1rem 1.25rem; border-radius: 14px; font-size: 0.86rem; margin-bottom: 2rem; font-weight: 600; }
+
+code { background: var(--panel); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85em; }
+
+/* -------------------- Responsive -------------------- */
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .stats-fila { grid-template-columns: 1fr; }
+  .tarjetas { grid-template-columns: 1fr; }
+  .pie-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .nav-links { display: none; }
+  .panel-admin { grid-template-columns: 1fr; }
+  .mancha { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* -------------------- Cuenta regresiva -------------------- */
+
+.cuenta-regresiva { margin: 1.6rem 0; }
+.cuenta-titulo { display: block; font-size: 0.85rem; font-weight: 700; color: var(--texto-tenue); margin-bottom: 0.6rem; }
+.cuenta-numeros { display: flex; gap: 0.9rem; }
+.cuenta-numeros div {
+  background: #fff; border-radius: 16px; padding: 0.7rem 1rem; text-align: center; min-width: 64px;
+}
+.cuenta-numeros strong { display: block; font-family: var(--fuente-titular); font-size: 1.6rem; color: var(--coral); line-height: 1; }
+.cuenta-numeros small { font-size: 0.72rem; color: var(--texto-tenue); font-weight: 600; }
+
+/* -------------------- Aliados -------------------- */
+
+.tira-aliados { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+.aliado-hueco {
+  flex: 1 1 160px; height: 90px; border: 2px dashed var(--linea); border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--texto-tenue); font-size: 0.85rem; font-weight: 600; text-align: center; padding: 0.5rem;
+}
+
+/* -------------------- Galería -------------------- */
+
+.galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.2rem; }
+.foto-hueco {
+  aspect-ratio: 4 / 3; border-radius: 20px; border: 2px dashed var(--linea);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.5rem; padding: 1rem; text-align: center;
+}
+.foto-hueco .foto-icono { font-size: 2rem; }
+.foto-hueco p { font-size: 0.85rem; color: var(--texto-tenue); margin: 0; font-weight: 600; }
