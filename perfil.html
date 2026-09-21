@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi cuenta — A Otro Nivel</title>
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="contenedor">
+    <a href="index.html" class="marca"><img class="marca-logo" src="logo.jpg" alt=""> A Otro<span> Nivel</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="wiki.html">Wiki</a></li>
+      <li><a href="registro.html">Regístrate</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom: 1.5rem;">
+    <div class="contenedor" style="max-width: 560px;">
+      <p class="lema">Mi cuenta</p>
+      <h1>Tu perfil</h1>
+      <p>Entra con el correo y la clave que creaste al registrarte, para ver tu información y hace cuánto eres parte de A Otro Nivel.</p>
+    </div>
+  </section>
+
+  <section style="padding-top: 1rem;">
+    <div class="contenedor">
+
+      <div id="login">
+        <form id="formLoginMiembro" class="formulario">
+          <div class="campo">
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" required>
+          </div>
+          <div class="campo">
+            <label for="clave">Clave</label>
+            <input type="password" id="clave" required>
+          </div>
+          <button type="submit" class="boton boton-principal">Entrar</button>
+          <p id="errorLogin" style="color:var(--error); font-size:0.9rem; margin-top:0.75rem;"></p>
+        </form>
+        <p class="campo-ayuda" style="margin-top:1rem;">¿Todavía no tienes cuenta? Se crea al <a href="registro.html">registrarte</a>, marcando la casilla de cuenta.</p>
+      </div>
+
+      <div id="perfil" class="oculto" style="max-width:560px;">
+        <div style="display:flex; justify-content:flex-end; margin-bottom:1rem;">
+          <button id="botonSalir" class="boton boton-secundario">Cerrar sesión</button>
+        </div>
+        <div class="panel-stats">
+          <h2 id="perfilNombre" style="margin-bottom:0.2rem;"></h2>
+          <p id="perfilAntiguedad" style="color:var(--acento); font-weight:600; margin-bottom:1.5rem;"></p>
+          <p><strong>Colegio:</strong> <span id="perfilColegio"></span></p>
+          <p><strong>Talento:</strong> <span id="perfilTalento"></span></p>
+          <p><strong>Motivos para unirte:</strong> <span id="perfilMotivos"></span></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie-grid">
+    <div>
+      <p class="marca" style="font-size:1.1rem;">A Otro<span style="color:var(--acento);"> Nivel</span></p>
+      <p>Fundación que organiza ferias de innovación para mostrar el talento de personas en condición de calle y ayudarlas a salir de ahí.</p>
+    </div>
+    <div>
+      <h3 style="font-size:0.95rem; color:var(--tinta);">Sitio</h3>
+      <a href="index.html">Inicio</a>
+      <a href="wiki.html">Wiki</a>
+      <a href="registro.html">Registro</a>
+      <a href="agenda.html">Agenda una charla</a>
+    </div>
+    <div>
+      <h3 style="font-size:0.95rem; color:var(--tinta);">Contacto</h3>
+      <a href="mailto:soyese102015@gmail.com">soyese102015@gmail.com</a>
+    </div>
+  </div>
+  <div class="contenedor pie-derechos">© 2026 A Otro Nivel. Todos los derechos reservados.</div>
+</footer>
+
+<script type="module" src="perfil.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda una charla — A Otro Nivel</title>
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="contenedor">
+    <a href="index.html" class="marca"><img class="marca-logo" src="logo.jpg" alt=""> A Otro<span> Nivel</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="wiki.html">Wiki</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+    </ul>
+    <a href="registro.html" class="boton boton-principal">Regístrate</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom: 1rem;">
+    <div class="contenedor">
+      <p class="lema">Charlas</p>
+      <h1>Agenda una charla</h1>
+      <p>Llevamos la historia de A Otro Nivel a colegios, empresas y otros espacios — una charla corta sobre talento, dignidad y lo que pasa en una feria. Cuéntanos dónde y cuándo, y te contactamos para cuadrar los detalles.</p>
+    </div>
+  </section>
+
+  <section style="padding-top: 1rem;">
+    <div class="contenedor">
+      <form id="formAgenda" class="formulario">
+
+        <div class="campo">
+          <label for="agNombre">Tu nombre</label>
+          <input type="text" id="agNombre" required>
+        </div>
+
+        <div class="campo">
+          <label for="agLugar">Colegio, empresa o lugar</label>
+          <input type="text" id="agLugar" required>
+        </div>
+
+        <div class="campo">
+          <label for="agTipo">Tipo de lugar</label>
+          <select id="agTipo" required>
+            <option value="Colegio">Colegio</option>
+            <option value="Otro">Otro (empresa, comunidad, evento...)</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="agFecha">Fecha que te gustaría (aproximada)</label>
+          <input type="date" id="agFecha" required>
+        </div>
+
+        <div class="campo">
+          <label for="agContacto">Correo o teléfono de contacto</label>
+          <input type="text" id="agContacto" required>
+        </div>
+
+        <div class="campo">
+          <label for="agMensaje">Cuéntanos un poco más (público, tamaño del grupo, etc.)</label>
+          <textarea id="agMensaje"></textarea>
+        </div>
+
+        <button type="submit" class="boton boton-principal" style="width:100%;">Enviar solicitud</button>
+
+        <div id="mensajeAgenda" class="mensaje"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie-grid">
+    <div>
+      <p class="marca" style="font-size:1.1rem;">A Otro<span style="color:var(--acento);"> Nivel</span></p>
+      <p>Fundación que organiza ferias de innovación para mostrar el talento de personas en condición de calle y ayudarlas a salir de ahí.</p>
+    </div>
+    <div>
+      <h3 style="font-size:0.95rem; color:var(--tinta);">Sitio</h3>
+      <a href="index.html">Inicio</a>
+      <a href="wiki.html">Wiki</a>
+      <a href="registro.html">Registro</a>
+      <a href="perfil.html">Mi cuenta</a>
+    </div>
+    <div>
+      <h3 style="font-size:0.95rem; color:var(--tinta);">Contacto</h3>
+      <a href="mailto:soyese102015@gmail.com">soyese102015@gmail.com</a>
+    </div>
+  </div>
+  <div class="contenedor pie-derechos">© 2026 A Otro Nivel. Todos los derechos reservados.</div>
+</footer>
+
+<script type="module">
+  import { agregarCita } from "./data.js";
+
+  document.getElementById('formAgenda').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const boton = this.querySelector('button[type="submit"]');
+    const mensaje = document.getElementById('mensajeAgenda');
+    boton.disabled = true;
+    boton.textContent = 'Enviando...';
+
+    try {
+      await agregarCita({
+        Nombre: document.getElementById('agNombre').value.trim(),
+        Lugar: document.getElementById('agLugar').value.trim(),
+        Tipo: document.getElementById('agTipo').value,
+        FechaDeseada: document.getElementById('agFecha').value,
+        Contacto: document.getElementById('agContacto').value.trim(),
+        Mensaje: document.getElementById('agMensaje').value.trim()
+      });
+      mensaje.textContent = '¡Listo! Recibimos tu solicitud — te contactaremos pronto para cuadrar la charla.';
+      mensaje.className = 'mensaje exito';
+      this.reset();
+    } catch {
+      mensaje.textContent = 'Algo falló al enviar tu solicitud. Escríbenos directo a soyese102015@gmail.com mientras lo revisamos.';
+      mensaje.className = 'mensaje error';
+    }
+
+    boton.disabled = false;
+    boton.textContent = 'Enviar solicitud';
+  });
+</script>
+</body>
+</html>
